@@ -15,7 +15,7 @@
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
+  color: #000;
   line-height: 48px;
   display: inline;
 }
@@ -23,7 +23,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999999;
+  color: #000;
   line-height: 29px;
   padding: 10px;
 }
@@ -82,26 +82,26 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #000;
   line-height: 28px;
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #FFF;
   display: none;
 }
 
 .orange {
-  background-color: #F5AE23;
+  background-color: #9F9F9F;
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: black;
 }
 
 .white-text {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #000;
 }
 
 .gray {
@@ -116,7 +116,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #9F9F9F;
 }
 
 .flex-box {
@@ -164,6 +164,7 @@ img {
 
 span {
   padding: 5px;
+  color: white;
 }
 
 #letsConnect {

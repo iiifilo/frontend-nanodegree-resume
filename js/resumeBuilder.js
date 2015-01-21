@@ -187,7 +187,7 @@ education.displayEdu = function() {
           var formattedurl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
           var courses = formattedtitle + formattedschool + formatteddate + formattedurl;
           $(courses).appendTo(".education-entry:last");             
-        } 
+        } ;
 };
 education.displayEdu();
 $("#main").append(internationalizeButton);
