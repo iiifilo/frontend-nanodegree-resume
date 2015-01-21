@@ -27,8 +27,7 @@ var education = {
         "majors": [
             "Italian",
             "Spanish",
-            "English",
-            "French"
+            "English"           
         ],
         "dates": 1990,
         "url": "http://www.baehs.com.ar"
@@ -38,8 +37,7 @@ var education = {
         "degree": "Ing.",
         "majors": [
             "Agriculture",
-            "Potato Cleaner",
-            "Corn Picker",
+            "Potato Cleaner",          
             "Wine Taster"
         ],
         "dates": 1996,
@@ -163,17 +161,12 @@ education.displayEdu = function() {
         formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[edu].location);
         $(".education-entry:last").append(formattedLocation);
         formattedUrl = HTMLonlineURL.replace("%data%", education.schools[edu].url);
-        $(".education-entry:last").append(formattedUrl);
-
-        formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors[0]);
-        $(".education-entry:last").append(formattedMajors);
-        formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors[1]);
-        $(".education-entry:last").append(formattedMajors);
-        formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors[2]);
-        $(".education-entry:last").append(formattedMajors);
-        formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors[3]);
-        $(".education-entry:last").append(formattedMajors);
-    }
+        $(".education-entry:last").append(formattedUrl);             
+         for (major in education.schools[edu].majors) {
+            var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors[major]);
+            $(".education-entry:last").append(formattedMajors);
+        };       
+    }   
 };
 education.displayEdu();
 $("#main").append(internationalizeButton);
