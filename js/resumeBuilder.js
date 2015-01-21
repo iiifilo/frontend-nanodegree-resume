@@ -11,55 +11,66 @@ var bio = {
     },
     "welcomeMessage": "welcome to my bio",
     "skills": [
-        "quiet",
-        " slow",
-        " average",
-        " student "
+        "HTML",
+        "CSS",
+        "GITHUB",
+        "JSON",
+        "JQuery",
+        "BootStrap"
     ],
     "biopic": "images/fry.jpg"
 };
 //My Education Object
 var education = {
-    "schools": [{
-        "name": "BAEHS",
-        "location": "Atlanta, GA",
-        "degree": "Translator",
-        "majors": [
-            "Italian",
-            "Spanish",
-            "English"           
-        ],
-        "dates": 1990,
-        "url": "http://www.baehs.com.ar"
-    }, {
-        "name": "UBA",
-        "location": "Atlanta, GA",
-        "degree": "Ing.",
-        "majors": [
-            "Agriculture",
-            "Potato Cleaner",          
-            "Wine Taster"
-        ],
-        "dates": 1996,
-        "url": "http://www.UBA.com.ar"
-    }],
-    "onlineCourses": [{
-        "title": "Front End Web Developer Nanodegree",
-        "school": "Udacity",
-        "date": 2014,
-        "url": "http://udacity.com"
-    }]
+    "schools": [
+        {
+            "name": "Universidad de Buenos Aires",
+            "location": "Buenos Aires, Argentina",
+            "degree": "Bachelor of Science",
+            "majors": [
+                "Agriculture"
+            ],
+            "dates": "1992-1997",
+            "url": "http://www.UBA.com.ar"
+        },
+        {
+            "name": "Buenos Aires English High School",
+            "location": "Buenos Aires, Argentina",
+            "degree": "High School Diploma",
+            "majors": [
+                "Spanish",
+                "English"
+            ],
+            "dates": "1978-1985",
+            "url": "http://www.baehs.com.ar"
+        }
+    ],
+    "onlineCourses": [
+        {
+            "title": "Front End Web Developer Nanodegree",
+            "school": "Udacity",
+            "date": 2014,
+            "url": "http://www.udacity.com"
+        }
+        ,
+        {
+            "title": ["HTML and CSS", " Javascript", " PHP"],
+            "school": "Code Cademy",
+            "date": 2013,
+            "url": "http://www.codecademy.com"
+        }
+    ]
 };
 //My Work Experience Object
 var work = {
     "jobs": [{
-        "employer": "iiifilomena software llc",
+        "employer": "iiifilomena Software",
         "title": "Supervisor",
         "location": "Atlanta, GA",
         "dates": "2013-Present",
-        "description": "Assign new contacts to salesmen "
+        "description": "Business Administration, billing and sales "
     }, {
-        "employer": "RFI",
+        "employer": "The Red Fox Inn",
         "title": "Server",
         "location": "Middleburg, VA",
         "dates": "2011-2013",
@@ -71,18 +82,18 @@ var projects = {
     "projects": [{
         "title": "iiifilo website",
         "dates": 2013,
-        "description": "main web site for the company",
-        "images": ["images/img1.jpg", "images/img2.jpg"]
+        "description": "Main web site for the company",
+        "images": ["images/iiifilo.jpg", ]
     }, {
         "title": "The Cardo Charm",
         "dates": "2013",
-        "description": "main web site for the company",
-        "images": ["images/img2.jpg"]
+        "description": "Main web site for the company",
+        "images": ["images/thecardo.jpg"]
     }, {
         "title": "Asesoria para SOFOMES",
         "dates": "2013",
-        "description": "branch web site for the company",
-        "images": ["images/img3.jpg"]
+        "description": "Branch web site for the company",
+        "images": ["images/asesoria.jpg"]
     }]
 };
 bio.display = function() {
@@ -162,16 +173,26 @@ education.displayEdu = function() {
         $(".education-entry:last").append(formattedLocation);
         formattedUrl = HTMLonlineURL.replace("%data%", education.schools[edu].url);
         $(".education-entry:last").append(formattedUrl);             
-         for (major in education.schools[edu].majors) {
+        for (major in education.schools[edu].majors) {
             var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors[major]);
             $(".education-entry:last").append(formattedMajors);
         };       
-    }   
+    } 
+
+        for (var course in education.onlineCourses){  
+          $(".education-entry:last").append(HTMLonlineClasses);
+          var formattedtitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+          var formattedschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+          var formatteddate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
+          var formattedurl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+          var courses = formattedtitle + formattedschool + formatteddate + formattedurl;
+          $(courses).appendTo(".education-entry:last");             
+        } 
 };
 education.displayEdu();
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
-//Add clics cordenates*************************
+//Add click coordinates*************************
 $(document).click(function(loc) {
     var x = loc.pageX;
     var y = loc.pageY;
